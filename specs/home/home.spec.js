@@ -20,16 +20,18 @@ describe('home spec', function() {
     });
 
     it("should make an ajax call to api/students", function () {
-        controller("UpdateCtrl", {$scope: scope, studentApi: service, $routeParams: {id: 1}});
 
         $httpBackend.expectGET('app/views/home/home.html').respond(200);
-        $httpBackend.whenGET("http://localhost:7000/api/student/1").respond([{
+        $httpBackend.whenGET("http://localhost:7000/api/student/1").respond({
             id: 7,
             first: 'Chris',
             last: 'Johnson'
-        }]);
+        });
 
-        scope.$root.$digest();
+        controller("UpdateCtrl", {$scope: scope, studentApi: service, $routeParams: {id: 1}});
+
+        $httpBackend.flush();
+
         expect(scope.first).toBe('Chris');
     });
 });

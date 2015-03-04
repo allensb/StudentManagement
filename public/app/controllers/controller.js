@@ -32,9 +32,7 @@ angular.module('app.controllers', [])
         function($scope, studentApi, $routeParams) {
             $scope.id = $routeParams.id;
 
-            console.log('test2');
             studentApi.getStudent($routeParams.id, function(data) {
-                console.log('test');
                 $scope.first = data.first;
                 $scope.last = data.last;
             });
