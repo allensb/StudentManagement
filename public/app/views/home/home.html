@@ -1,0 +1,34 @@
+<br />
+<div class="center">
+  <a href="#/add">Add New Student</a>
+</div>
+
+<div class="widget wblue">
+  <div data-cc-widget-header title="People"
+       allow-collapse="true"></div>
+  <div class="widget-content text-center text-info">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr data-ng-repeat="student in students">
+        <td>{{student.id}}</td>
+        <td>{{student.first}}</td>
+        <td>{{student.last}}</td>
+        <td><a href="#/update/{{student.id}}">Update</a></td>
+        <td><a href="#/" data-ng-click="delete(student.id)">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="widget-foot">
+    <div class="clearfix"></div>
+  </div>
+</div>

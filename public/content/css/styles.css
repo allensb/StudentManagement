@@ -1,0 +1,107 @@
+.navbar {
+    background-color: #003366;
+    border-color: #003366;
+    border-radius: 0px;
+    min-height: 40px;
+    color: #fff;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+a {
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+button {
+    background-color: #003366;
+    color: #fff;
+    padding-top: 0px;
+    min-width: 100px;
+    border: 0;
+}
+
+div.center {
+    margin: 0 auto;
+    width: 600px;
+    text-align: center;
+}
+
+div.addcontent {
+    width: 250px;
+}
+
+.add {
+    margin-bottom: 20px;
+}
+
+.addbutton {
+    text-align: right;
+}
+
+label {
+    margin-right: 20px;
+}
+
+label.id {
+    float: left;
+    width: 76px;
+    text-align: left;
+}
+
+.widget.wblue .widget-head {
+    background-color: #1171a3;
+    border: 1px solid #1171a3;
+    color: #fff;
+}
+
+.widget {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.widget hr {
+    margin: 4px 0;
+    padding: 4px 0;
+    border-top: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.widget td {
+    text-align:left;
+}
+
+.widget .table {
+    margin: 0;
+    width: 100%;
+}
+
+.widget .table-bordered {
+    border: 0;
+}
+
+.widget .table-bordered th {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.widget .table-bordered td {
+    border-top: 0 !important;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.widget .table-bordered td:first-child, .widget .table-bordered th:first-child {
+    border-left: 0;
+}
+
+.widget .padd {
+    padding: 15px;
+}
