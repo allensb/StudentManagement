@@ -7,7 +7,7 @@ angular.module('app.controllers', [])
             });
 
             $scope.delete = function(id) {
-                if (confirm('Are you sure you want to delete this student?') === true) {
+                if (window.confirm('Are you sure you want to delete this student?') === true) {
                     studentApi.deleteStudent(id, function(data) {
                         studentApi.getStudents(function(data) {
                             $scope.students = data;
@@ -21,11 +21,11 @@ angular.module('app.controllers', [])
             $scope.add = function() {
                 studentApi.insertStudent($scope.first, $scope.last, function(data) {
                     if (data === 'success') {
-                        alert('Successfully Inserted!');
+                        window.alert('Successfully Inserted!');
                         return;
                     }
-                    alert('Insert failed! Please contact your administrator.');
-                })
+                    window.alert('Insert failed! Please contact your administrator.');
+                });
             };
         }])
     .controller('UpdateCtrl', ['$scope', 'studentApi',  '$routeParams',
@@ -40,10 +40,10 @@ angular.module('app.controllers', [])
             $scope.update = function() {
                 studentApi.updateStudent($scope.id, $scope.first, $scope.last, function(data) {
                     if (data === 'success') {
-                        alert('Successfully Updated!');
+                        window.alert('Successfully Updated!');
                         return;
                     }
-                    alert('Update failed! Please contact your administrator.');
-                })
+                    window.alert('Update failed! Please contact your administrator.');
+                });
             };
         }]);
