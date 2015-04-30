@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title data-ng-bind="title">Student Management</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+        <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="content/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="clearfix">
+            <nav class="navbar"><a href="#/">Student Management</a></nav>
+        </header>
+
+        <div data-ng-view></div>
+
+        <!-- Browserify -->
+        <script src="bundle.js" type="application/javascript"></script>
+        <script src="app.min.js" type="application/javascript"></script>
+    </body>
+</html>

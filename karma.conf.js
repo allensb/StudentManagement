@@ -8,9 +8,9 @@ module.exports = function(config) {
             'node_modules/angular-sanitize/angular-sanitize.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'node_modules/angular-bootstrap/dist/ui-bootstrap.js',
-            'public/app/app.js',
-            'public/app/controllers/*.js',
-            'public/app/services/*.js',
+            'src/app/app.js',
+            'src/app/controllers/*.js',
+            'src/app/services/*.js',
             'specs/**/*.js'
         ],
 

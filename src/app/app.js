@@ -2,7 +2,6 @@
     'use strict';
 
     var app = angular.module('app', [
-        'app.controllers',
         'ngRoute',          // routing
         'ngSanitize',       // sanitizes html bindings (ex: sidebar.js)
         'ui.bootstrap',      // ui-bootstrap (ex: carousel, pagination, dialog)
@@ -11,15 +10,15 @@
     app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {
-                templateUrl: 'app/views/home/home.html',
+                templateUrl: 'components/home/home.html',
                 controller: 'HomeCtrl'
             }).
             when('/update/:id', {
-                templateUrl: 'app/views/home/update.html',
+                templateUrl: 'components/update/update.html',
                 controller: 'UpdateCtrl'
             }).
             when('/add', {
-                templateUrl: 'app/views/home/add.html',
+                templateUrl: 'components/add/add.html',
                 controller: 'AddCtrl'
             }).
             otherwise({
