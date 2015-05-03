@@ -9,16 +9,6 @@ var files = ['./src/app/app.js',
     './src/app/services/*.js'
 ];
 
-gulp.task('ngAnnotateTest', function() {
-    return gulp
-        .src(files)
-        .pipe(plug.ngAnnotate({add: true, single_quotes: true}))
-        .pipe(plug.rename(function(path) {
-            path.extname = '.annotated.js';
-        }))
-        .pipe(gulp.dest('./dist'));
-});
-
 gulp.task('hint', function() {
     return gulp
         .src(files)
@@ -26,7 +16,7 @@ gulp.task('hint', function() {
         .pipe(plug.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('compileJS', function () {
+gulp.task('browserify', function () {
     return browserify('./src/app/plugins.js').bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./dist'));
@@ -36,6 +26,7 @@ gulp.task('minifyJS', function() {
     return gulp
         .src(files)
         .pipe(plug.ngAnnotate())
+        .pipe(plug.babel())
         .pipe(plug.uglify())
         .pipe(plug.concat('app.min.js'))
         .pipe(gulp.dest('./dist'));
@@ -60,10 +51,11 @@ gulp.task('test', function (done) {
     }, done);
 });
 
-gulp.task('default', function(done) {
-    karma.start({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, done);
-
+// Watch Files For Changes
+gulp.task('watch', function() {
+    gulp.watch(files, ['hint', 'build', 'test']);
 });
+
+gulp.task('build', ['browserify', 'minifyJS', 'move']);
+
+gulp.task('default', ['hint', 'build', 'test', 'watch']);
