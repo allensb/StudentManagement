@@ -1,4 +1,4 @@
-describe('home spec', function() {
+describe('update spec', function() {
 
     beforeEach(module('app'));
 
@@ -21,14 +21,14 @@ describe('home spec', function() {
 
     it("should make an ajax call to api/students", function () {
 
-        httpBackend.expectGET('app/views/home/home.html').respond(200);
+        httpBackend.expectGET('components/home/home.html').respond(200);
         httpBackend.whenGET("http://localhost:7000/api/student/1").respond(200, {
             id: 7, // Data returned, but not set in scope
             first: 'Chris',
             last: 'Johnson'
         });
 
-        controller("UpdateCtrl", {$scope: scope, studentApi: service, $routeParams: {id: 1}});
+        controller('UpdateCtrl', {$scope: scope, studentApi: service, $routeParams: {id: 1}});
 
         httpBackend.flush();
 
