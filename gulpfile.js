@@ -25,8 +25,8 @@ gulp.task('browserify', function () {
 gulp.task('minifyJS', function() {
     return gulp
         .src(files)
-        .pipe(plug.ngAnnotate())
         .pipe(plug.babel())
+        .pipe(plug.ngAnnotate())
         .pipe(plug.uglify())
         .pipe(plug.concat('app.min.js'))
         .pipe(gulp.dest('./dist'));
@@ -53,6 +53,7 @@ gulp.task('test', function (done) {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
+    gulp.watch('./src/app/components/**/*.html', ['build', 'test']);
     gulp.watch(files, ['hint', 'build', 'test']);
 });
 

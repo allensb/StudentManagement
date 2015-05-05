@@ -4,14 +4,15 @@
     var app = angular.module('app', [
         'ngRoute',          // routing
         'ngSanitize',       // sanitizes html bindings (ex: sidebar.js)
-        'ui.bootstrap',      // ui-bootstrap (ex: carousel, pagination, dialog)
+        'ui.bootstrap'      // ui-bootstrap (ex: carousel, pagination, dialog)
     ]);
 
     app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {
                 templateUrl: 'components/home/home.html',
-                controller: 'HomeCtrl'
+                controller: 'HomeCtrl',
+                controllerAs: 'home'
             }).
             when('/update/:id', {
                 templateUrl: 'components/update/update.html',
