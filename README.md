@@ -1,3 +1,3 @@
-#Student Management - Angular Demo
+#Student Management - Angular / Babel / ES6 Demo
 
 
