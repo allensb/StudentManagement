@@ -8,9 +8,7 @@ module.exports = function(config) {
             'node_modules/angular-sanitize/angular-sanitize.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'node_modules/angular-bootstrap/dist/ui-bootstrap.js',
-            'src/app/app.js',
-            'src/app/components/**/*.js',
-            'src/app/services/*.js',
+            'dist/app.min.js',
             'specs/**/*.js'
         ],
 
@@ -30,10 +28,18 @@ module.exports = function(config) {
             'karma-phantomjs-launcher'
         ],
 
+        preprocessors: {
+            files: ['browserify']                     
+        },
+
+        browserify: {
+            debug: true,
+            transform: [ 'babelify' ]
+        },
+
         junitReporter: {
             outputFile: 'unit.xml',
             suite: 'unit'
         }
-
     })
 }

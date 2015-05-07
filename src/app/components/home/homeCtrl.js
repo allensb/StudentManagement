@@ -1,19 +1,21 @@
 (function (angular) {
     angular.module('app')
-        .controller('HomeCtrl', ['$scope', 'studentApi',
-            function($scope, studentApi) {
-                studentApi.getStudents(function(data) {
-                    $scope.students = data;
-                });
+        .controller('HomeCtrl', HomeCtrl);
 
-                $scope.delete = function(id) {
-                    if (window.confirm('Are you sure you want to delete this student?') === true) {
-                        studentApi.deleteStudent(id, function(data) {
-                            studentApi.getStudents(function(data) {
-                                $scope.students = data;
-                            });
-                        });
-                    }
-                };
-            }]);
+    function HomeCtrl(studentApi) {
+        let home = this;
+        studentApi.getStudents(function(data) {
+            home.students = data;
+        });
+
+        home.delete = function(id) {
+            if (confirm('Are you sure you want to delete this student?') === true) {
+                studentApi.deleteStudent(id, function(data) {
+                    studentApi.getStudents(function(data) {
+                        home.students = data;
+                    });
+                });
+            }
+        };
+    }
 }(angular));
