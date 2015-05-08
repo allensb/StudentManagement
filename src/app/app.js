@@ -16,11 +16,13 @@
             }).
             when('/update/:id', {
                 templateUrl: 'components/update/update.html',
-                controller: 'UpdateCtrl'
+                controller: 'UpdateCtrl',
+                controllerAs: 'student'
             }).
             when('/add', {
                 templateUrl: 'components/add/add.html',
-                controller: 'AddCtrl'
+                controller: 'AddCtrl',
+                controllerAs: 'student'
             }).
             otherwise({
                 redirectTo: '/'

@@ -3,14 +3,13 @@ describe('update spec', function() {
     beforeEach(module('app'));
 
     var service,
-        scope,
+        vm,
         controller,
         httpBackend;
 
     beforeEach(inject(function(studentApi, $rootScope, $controller, $httpBackend){
         service = studentApi;
         httpBackend = $httpBackend;
-        scope = $rootScope.$new();
         controller = $controller;
     }));
 
@@ -28,11 +27,11 @@ describe('update spec', function() {
             last: 'Johnson'
         });
 
-        controller('UpdateCtrl', {$scope: scope, studentApi: service, $routeParams: {id: 1}});
+        var vm = controller('UpdateCtrl', {studentApi: service, $routeParams: {id: 1}});
 
         httpBackend.flush();
 
-        expect(scope.first).toBe('Chris');
-        expect(scope.last).toBe('Johnson');
+        expect(vm.first).toBe('Chris');
+        expect(vm.last).toBe('Johnson');
     });
 });

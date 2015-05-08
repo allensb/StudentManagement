@@ -3,7 +3,7 @@
         .controller('AddCtrl', AddCtrl);
 
     function AddCtrl(studentApi) {
-        var vm = this;
+        let vm = this;
         vm.add = function() {
             studentApi.insertStudent(vm.first, vm.last, function(data) {
                 if (data === 'success') {

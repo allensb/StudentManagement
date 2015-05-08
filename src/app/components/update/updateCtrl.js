@@ -1,23 +1,24 @@
 (function (angular) {
     angular.module('app')
-    
-        .controller('UpdateCtrl', ['$scope', 'studentApi',  '$routeParams',
-            function($scope, studentApi, $routeParams) {
-                $scope.id = $routeParams.id;
+        .controller('UpdateCtrl', UpdateCtrl);
 
-                studentApi.getStudent($routeParams.id, function(data) {
-                    $scope.first = data.first;
-                    $scope.last = data.last;
+        function UpdateCtrl(studentApi, $routeParams) {
+            let vm = this;
+            vm.id = $routeParams.id;
+
+            studentApi.getStudent($routeParams.id, function(data) {
+                vm.first = data.first;
+                vm.last = data.last;
+            });
+
+            vm.update = function() {
+                studentApi.updateStudent(vm.id, vm.first, vm.last, function(data) {
+                    if (data === 'success') {
+                        alert('Successfully Updated!');
+                        return;
+                    }
+                    alert('Update failed! Please contact your administrator.');
                 });
-
-                $scope.update = function() {
-                    studentApi.updateStudent($scope.id, $scope.first, $scope.last, function(data) {
-                        if (data === 'success') {
-                            window.alert('Successfully Updated!');
-                            return;
-                        }
-                        window.alert('Update failed! Please contact your administrator.');
-                    });
-                };
-            }]);
+            };
+        }
 }(angular));
